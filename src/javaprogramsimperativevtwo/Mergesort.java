@@ -1,4 +1,4 @@
-package javaprogramsimperative;
+package javaprogramsimperativevtwo;
 
 import java.util.Arrays;
 
@@ -32,9 +32,10 @@ public class Mergesort {
 		mergeSort(e,0,e.length-1);
 		System.out.println(Arrays.toString(e));
 
+
 	}
 	
-	public static void mergeSort (int x[],int lb,int ub) {
+	public static void mergeSort (int x[],int lb, int ub) {
 		
 		int mid;
 		
@@ -46,15 +47,14 @@ public class Mergesort {
 		}
 		
 		return;
-		
 	}
 	
 	public static void merge (int x[],int lb,int mid,int midplus,int ub) {
 		
 		int i=lb,j=midplus,k=0,l=0,m=lb;
-				
+		
 		int temp[] = new int[ub-lb+1];
-				
+		
 		while(i<=mid && j<=ub) {
 			if(x[i]<x[j]) {
 				temp[k]=x[i];

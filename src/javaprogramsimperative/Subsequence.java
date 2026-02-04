@@ -31,7 +31,6 @@ public class Subsequence {
 			while(j<str.length()) {
 				d=str.charAt(j);
 				if(c==d) {
-					i++;
 					j++;
 					count++;
 					break;

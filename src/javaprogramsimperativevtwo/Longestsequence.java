@@ -1,4 +1,4 @@
-package javaprogramsimperative;
+package javaprogramsimperativevtwo;
 
 import java.util.Arrays;
 
@@ -21,8 +21,6 @@ public class Longestsequence {
 		
 		int g[] = {10,11,12,13,100,200};
 		
-		int h[] = {7,16,17,18,19,21,22,53,54,55};
-		
 		int ans[];
 		ans=longestSequence(a);
 		System.out.println(Arrays.toString(ans));
@@ -44,16 +42,13 @@ public class Longestsequence {
 		
 		ans=longestSequence(g);
 		System.out.println(Arrays.toString(ans)); 
-		
-		ans=longestSequence(h);
-		System.out.println(Arrays.toString(ans));
 
 
 	}
 	
 	public static int[] longestSequence (int x[]) {
 		
-		int i=0,j=0,k=0,start=0,end=0,count=0,total=0;
+		int i=0,j=0,k=0,start=0,end=0,count=0,max=0;
 		
 		int output[];
 		
@@ -77,45 +72,43 @@ public class Longestsequence {
 					}
 				}
 			}
-			
 			if(j==x.length-1) {
 				if(x[j]-1==x[j-1]) {
 					count++;
-				}else {
-					break;
 				}
 			}
-			
-			if(total<count) {
-				total=count;
+			if(max<count) {
 				start=i;
 				end=j;
+				max=count;
 			}
 			i=k;
 			count=0;
 		}
 		
-		if(total==0) {
+		if(max==0) {
 			return x;
 		}else {
-			output=copyElements(start,end,total,x);
+			output=copyElements(x,start,end,max);
 			return output;
 		}
+		
+		
 	}
 	
-	public static int[] copyElements(int start,int end,int total,int input[]) {
+	public static int[] copyElements(int x[],int start,int end,int total) {
 		
 		int i=start,j=0;
 		
-		int temp[]=new int[total];
+		int result[]=new int[total];
 		
 		while(i<=end) {
-			temp[j]=input[i];
+			result[j]=x[i];
 			i++;
 			j++;
 		}
 		
-		return temp;
+		return result;
 	}
 
 }
